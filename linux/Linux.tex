@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{longtable}
+
+\begin{document}
+	\title{My Linux Notes}
+	\maketitle
+	\pagebreak
+	\tableofcontents
+	\pagebreak
+	\section{VIM}
+		\subsection{Commands}
+		\begin{longtable}{ll}
+			\hline
+			Help                                        &                                                   \\ \hline
+			help command                                & help for the command                              \\
+			:q                                          & close the help window                             \\
+			.                                           & repeat the last change                            \\ \hline
+			Exit Commands                               &                                                   \\ \hline
+			:w                                          & save the file                                     \\
+			:q                                          & exit (if didn't change anything)                  \\
+			:q!                                         & exit without saving                               \\
+			:wq                                         & save and exit(:x ZZ)                              \\
+			:wq file                                    & save ass                                          \\ \hline
+			Insert Mode                                 &                                                   \\ \hline
+			i                                           & insert mode                                       \\
+			o                                           & create a line below                               \\
+			O                                           & create a line above                               \\
+			a                                           & append text after cursor                          \\
+			A                                           & append text at the end of the line                \\ \hline
+			Movement Commands                           &                                                   \\ \hline
+			h                                           & left                                              \\
+			l                                           & right                                             \\
+			j                                           & down                                              \\
+			k                                           & up                                                \\
+			0(hat)                                      & begging of the line                               \\
+			\$                                          & end of the line                                   \\
+			w                                           & move forward word by word(W use space only)       \\
+			b                                           & move backward word by word(B use space only)      \\
+			e                                           & end of word                                       \\
+			:n                                          & jump at line number                               \\
+			G :                                         & end of file                                       \\
+			ctrl + f                                    & page down                                         \\
+			ctrl + b                                    & page up                                           \\ \hline
+			Deleting Text                               &                                                   \\ \hline
+			x:                                          & delete under cursor                               \\
+			X:                                          & delete before cursor                              \\
+			dw:                                         & delete word                                       \\
+			diw:                                        & delete inner word                                 \\
+			D:                                          & clear line                                        \\
+			(n)dd:                                      & delete n line                                     \\
+			dG:                                         & delete entire line below                          \\ \hline
+			Replacing                                   &                                                   \\ \hline
+			r char                                      & replace char with under cursor char               \\
+			R                                           & Replacing Mode                                    \\ \hline
+			Copy \& Paste                               &                                                   \\ \hline
+			(n)yy                                       & yank yank(copy) n line                            \\
+			p                                           & paste blow                                        \\
+			P                                           & paste above                                       \\
+			J                                           & join                                              \\ \hline
+			Visual Mode                                 &                                                   \\ \hline
+			v                                           & visual mode (all movement commands works here)    \\
+			y                                           & copy                                              \\
+			d                                           & delete and copy(cut)                              \\ \hline
+			Searching                                   &                                                   \\ \hline
+			/pattern                                    & search for pattern                                \\
+			/enter(n)                                   & next result                                       \\
+			?enter(N)                                   & previous result                                   \\
+			/                                           & search top to bottom                              \\
+			?                                           & search bottom to top                              \\ \hline
+			Search \& Replace                           &                                                   \\ \hline
+			[range]s/{pattern}/{string}/[flags] [count] & replace string with patter\footnote{defaults=1}   \\
+			s/{pattern}/{string}/g                      & replace string with all pattern in a line         \\
+			\% s/{pattern}/{string}/                    & replace string with the first pattern whole file  \\
+			\% s/{pattern}/{string}/g                   & replace string with all pattern in whole file     \\ \hline
+			Configurations                              &                                                   \\ \hline
+			configuration file                          & \(\sim \)/.vimrc                                  \\
+			"                                           & comment in vimrc                                  \\
+			syntax[on/off]                              & language syntax                                   \\
+			set [nu/nonu]                               & line number                                       \\
+			set [wrap/nowrap]                           & breaking the line                                 \\
+			set ignorecase                              & (search and replace by default is case sensitive)
+		\end{longtable}				
+	\section{Links}
+		\subsection{Hard Links}
+		\subsection{Soft(Symbolic) links}
+
+	\section{TO-DO}
+		TERM \\
+		
+\end{document}
