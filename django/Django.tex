@@ -1,15 +1,42 @@
 \documentclass{article}
-
+\usepackage{listings}
 \begin{document}
 	\tableofcontents
-	\section{Mysql connection}
+	\section{MySQL connection}
 	\begin{enumerate}
 		\item install mysqlclient
 		\item set mysql as database engine
 		\item defaults -> OPTION -> "read\_default\_file": "path/to/mysql.cnf"
 	\end{enumerate}
-	on\_delete
-	'main.apps.MainConfig',
-	verbose\_name in main.apps.MainConfig',
-	class Meta in models: verbose\_name and verbose\_name\_plural
+	\section{Admin Panel}
+	\section{Models}
+		\subsection{verbose\_name}
+		\subsubsection{Each field type, except for Keys}
+		\begin{verbatim}
+		first_name = models.CharField("person's first name", 	max_length=30)
+		\end{verbatim}
+		\subsubsection{for Keys field}
+		\begin{verbatim}
+			sites = models.ManyToManyField(Site, 	verbose_name="list of sites")
+		\end{verbatim}
+		we can use this approach for the other field type too.
+		\subsubsection{for Model}
+			create subclass Meta in the model then add verbose\_name and verbose\_name\_plural attributes.
+		\subsection{on\_delete}
+			\subsubsection{models.CASCADE}
+				 deletes the object containing the ForeignKey.(when parent delete related children delete too)
+			
+			\subsubsection{models.SET\_NULL}
+				Set the ForeignKey null; this is only possible if null is True.(if parent delete children set the foreign key null)
+				
+			\subsubsection{models.Protected}
+				Prevent the deletion, first delete children then delete parent.
+	
+	\section{Installing an App}
+		add 'app\_name' or 'app\_name.apps.MainConfig' to the INSTALLEDAPP in the setting with the second approach we add some configuration
+		to the app like verbose\_name
+	\section{Farsi language and Tehran Time}
+		LANGUAGE\_CODE = 'fa-ir'  TIME\_ZONE = 'Asia/Tehran'
+		
+	
 \end{document}
