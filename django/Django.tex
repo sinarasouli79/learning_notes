@@ -31,12 +31,118 @@
 				
 			\subsubsection{models.Protected}
 				Prevent the deletion, first delete children then delete parent.
-	
+		\subsection{Relationships}
+			best practice = name the foreign key field be the name of the model, lowercase
+			\subsubsection{One To Many}
+				\begin{verbatim}
+					one_to_many_field = models.ForeignKey(ParentClass, on_delete)
+				\end{verbatim}
+				\paragraph{recursive relationships}
+					to create recursive relationships; an object that has a one to many relationship with it self do like this
+					\begin{verbatim}
+						models.ForeignKey('self', on_delete=models.CASCADE)
+					\end{verbatim}
+				
+	\section{Managers}
+		models.models.field() here models is a manager
+		in models create class for self defined manages which inherit from models.Manage e.g, manager for published articles
 	\section{Installing an App}
 		add 'app\_name' or 'app\_name.apps.MainConfig' to the INSTALLEDAPP in the setting with the second approach we add some configuration
 		to the app like verbose\_name
 	\section{Farsi language and Tehran Time}
 		LANGUAGE\_CODE = 'fa-ir'  TIME\_ZONE = 'Asia/Tehran'
+	
+	\section{Views}
+		\subsection{generic DetailView}
+			\begin{tabular}{ll}
+				\hline
+				Attributes & \\ \hline
+				model & model that want to create form for it \\
+				fields & a list off model field to represent in the form\\
+				template\_name & form template name 
+			\end{tabular}
+			\subsubsection{How to send data(e.g, pictures) throw django using HTML forms}
+				set encrypt to multipart/form-data in the form html element.
+			\subsection{model.get\_absolute\_url}
+				absolute url for the model.
+	\section{Authentication}
+	
+		admin and auth app in installed apps\\
+		field error and non field error
 		
+		\subsection{Create a Login Page}
+			\begin{itemize}
+				\item create an app
+				\item use django contrib.auth urls
+				\item create a template for login page(default django view looks for registration/login.html)
+				\item create view and template for login\_redirect\_urls
+				\item login\_redirect\_url in settings.py
+				\item login required decorators or mixins
+			\end{itemize}
+			
+			\subsubsection{LOGIN\_URL}
+				a variable in the django settings file, where the request are redirect when using login\_required decorators or LoginRequired mixin
+				
+			\subsubsection{LOGIN\_REDIRECT\_URL}
+				a variable in the django settings file, where request are redirect after login if LoginView doesn't get a next Get parameter.
+		\subsection{login\_required decorator}
+			redirect request to the settings.LOGIN\_URL if user isn't logged in.
+		
+		\subsection{LoginRequired Mixin}
+			can achieve the same behavior as with login\_required by using LoginRequired mixin.
+	\section{Templates}
+		\subsection{Static Files}
+			\subsubsection{STATICFILES\_DIRS}
+				its a additional location that static\_files app will traverse if the FileSystemFinder is enabled, e.g. if you use the collectstatic or findstatic management command or use the static file serving view\\
+				it's default values is an empty list\\
+				STATICFILES\_DIRS = [\\
+				BASE\_DIR / "static",\\
+				'/var/www/static/',\\
+				]\\
+			
+			\subsubsection{include tag}
+				use to load and renders it in the current context.
+				templates name [].
+				pass a value to a template form another template [].
+			\subsubsection{load static and static tag}
+				\begin{description}
+					\item [\{\%load static\%\}] use whenever call a static file
+					\item [href = " \{\% static 'url' \%\} " ]
+				\end{description}
+			
+		\subsection{Django Tweak}
+			tweak the form field rendering in templates no in python level form definitions, altering CSS classes and html attributes are supported.
+		\subsection{Fields Error}
+		\subsection{Non Fields Error}
+			like wrong password or username
+			\subsubsection{Disable JavaScript if Firefox}
+			use about:config 
+		\subsection{include tag}
+		\subsection{block tag}
+		\subsection{url tag}
+			\{\% url 'main:student\_course\_list' user.get\_username \%\}
+			for parameter don't use quote
+		\subsection{truncate tag tezmplate filter}
+		\subsection{foreign key value in a template}
+		
+	\section{ORM}
+		\section{and, or in query}
+		\section{foreign key value in the query}
+	\section{Form} 
+		\subsection{Raw Html Form}
+		\subsection{Pure Django Form}
+		\subsection{Django Model Form}
+		\subsection{form validation}
+		
+%		 whats google Books Ngram Viewer 
+%	\section{CBV}
+%	\section{Dynamic urls}
+%	\section{mixins multiple inheritance}
+%	
+%	TODO:
+%	[ ] get context data
+%	systemctl --user restart wireplumber
+%	
+%	font cdn
 	
 \end{document}
