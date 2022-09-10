@@ -135,7 +135,26 @@
 		\subsection{Pure Django Form}
 		\subsection{Django Model Form}
 		\subsection{form validation}
-		
+		\subsection{how to add styles to a template form}
+			\begin{enumerate}
+				\item install crispyapp and crispy bootstrap 5
+					\subitem read an article in the simple as nothing weblog 
+					\subitem update requirements.txt
+					\subitem add crispy to installed app 
+					\subitem a setting attribute in for bootstrap crispy
+				\item use in the template
+					\subitem load crispy in the template
+					\subitem in the template \{\{form.crispy\}\}
+				\item more config
+					\subitem costume field position(using as\_crispy\_field)
+					\subitem (position of each section)class col6 in simple as nothing doc
+				\item add admin lte form style to the form
+				
+				\item block for title in the base
+				\item bug:show tag in the article list
+					\subitem use strip and safe tags filter
+					
+			\end{enumerate}
 %		 whats google Books Ngram Viewer 
 %	\section{CBV}
 %	\section{Dynamic urls}
