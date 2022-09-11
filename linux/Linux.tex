@@ -1,12 +1,97 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage{longtable}
+\usepackage{hyperref}
 
 \begin{document}
 	\title{My Linux Notes}
 	\maketitle
+	\author{Overleaf}
 	\pagebreak
 	\tableofcontents
 	\pagebreak
+	\chapter{Managing Software and Processes}
+	\section{Arjang}
+	static linking no dependencies, too space, no library sharing(redundent) wulnerable, secure bug in library  or feature\\
+	dynamic linking not bundelling library inside program\\
+	install dependencies first , no redandent files, dependencies in dependencies, dependency hell \\
+	package: archive file(like zip, cpio, tar)
+	package format: rpm, deb \\
+	rpm and deb are the same both of them are package\\
+	extract package -> install package\\
+	alien convert rmp to deb and other\\
+	compile source and use : system doesn't know it (upgrade and updating is manual config file)\\
+	packager: compile app to create package and then download the package \\
+	developer and packager are not same necessary\\
+	distributor repository  , website rpmfind.net, 
+	not complied package text or script\\
+	extract manually package: there is not only one package, package is expload in the system and file system hierarchy \\
+	uninstall package: remove all package file from the system\\
+	to solve this problem use package manager apps: it has a database to keep the where and when the package installed\\
+	its easy to remove package, we can query, information\\
+	rpm linux package manager in redhat base distributions\\
+	package information inside it: writer, packager, dependencies, scrip for after and before installing and deleting\\
+	rpm -i install\\
+	rpm -q query on rpm installed app database \\
+	rpm -qa all package in this system\\
+	update kernel -> download package\\
+	rpm -q package name if package installed we have output\\
+	the package name and the command name not necessary the same\\
+	ls, cat, ... -> core utils\\
+	rpm -ql list of a package's files\\
+	rpm -ql coreutils or jdate\\
+	rpm -qi package information \\
+	rpm -qR Required dependencies of a package\\
+	rpm -q --what requires package name reverse dependencies\\
+	rpm -e package erase a package\\
+	rpm -e --nodeps package name force to delete package if there's a dependency error\\
+	rpm -qpr query from package file instead of installed app database\\
+	rpm -qf /file/name show package of the file\\
+	extract a file to install \\
+	rpm2cpio | cpio -id\\
+	
+	
+	
+	\section{Looking at Package Concepts}
+	\section{Using RPM}
+	Redhat Package Manager\\
+	\subsection{RPM Distributions and Conventions}
+	package-name-version-release-architecture.rpm\\
+	different distribution may have different package name for the same program\\
+	release also called build number\\	
+	\subsection{The rpm Command Set}
+	\begin{tabular}{lll}
+		\hline
+		Short & Long      & Description                                \\ \hline
+		-e    & --erase   & removes the specified package              \\
+		-i    & --install & install the specified package              \\
+		-q    & --query   & queries the specified package is installed \\
+		-U    & --upgrade & install of upgrades the specified package  \\
+		-Uvh  &           & installing/upgrading and rpm package file h for hash signs\\
+		-k & checksig & check the signatures\\
+		-V & --verify & check the installation is correct or not man rpm -V \\
+		- & & \\
+	\end{tabular}
+		rpm -uvh *.rpm
+	\subsubsection{Querying RMP Packages}
+		use the -q action to perform a simple query on the package management database for the installed packages
+		\begin{tabular}{lll}
+			\hline
+			Short & Long            & Description                                                                                           \\ \hline
+			-c    & --configfiles   & list the names and the absolute directory references of package configuration files                   \\
+			-i    & --info          & provides detailed information, including version, installation date and signatures                    \\
+			-l && \\
+			-f && \\
+			N/A   & --provides      & show the facilities package providers                                                                 \\
+			-R    & --requires      & display various package requirements(dependencies)                                                    \\
+			-s    & --state         & provides state of different files in a package, such as normal(installed), not installed, or replaced \\
+			N/A   & --what-provides & show what package a file belongs
+		\end{tabular}
+	\subsection{Extracting Data from RPMs}
+	\subsection{Using YUM}
+	\subsection{Using ZYpp}
+	\subsection{Using DNF}
+		\href{https://dnf.readthedocs.io/en/latest/use\_cases.html}{dnf document}
+	
 	\section{VIM}
 		\subsection{Commands}
 		\begin{longtable}{ll}
